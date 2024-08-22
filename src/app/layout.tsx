@@ -8,8 +8,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GitTrend",
-  description: "Popular new GitHub repos",
+  title: "Quirkle",
+  description: "Which person is the odd one out?",
 };
 
 export default function RootLayout({
@@ -19,10 +19,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} p-10 flex flex-col items-center`}>
+      <body className={`${inter.className} flex flex-col items-center`}>
         <StoreProvider>
-          <header className="flex flex-row justify-center" data-testid="layout">
-            <h1 className="text-white font-bold text-5xl inline-block"><span className="text-purple-300">Git</span>Trend</h1>
+          <header className=" p-10 flex flex-row justify-center" data-testid="layout">
+            <h1 className="font-bold text-5xl inline-block">Quirkle</h1>
           </header>
 
           {children}

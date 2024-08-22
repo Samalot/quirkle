@@ -10,7 +10,7 @@ interface TileProps {
 
 const Tile = ({option, selected, onClick}: TileProps) => {
   const borderStyle = selected
-    ? "bg-blue-100 border-2 border-blue-200"
+    ? "bg-purple-100 border-2 border-purple-200"
     : "bg-white border-2 border-gray-400";
 
   const hoverStyle = "transition-shadow duration-300 cursor-pointer hover:shadow-md hover:shadow-gray-400 hover:scale-105";
@@ -46,13 +46,25 @@ const Page = () => {
 
   return (
     <main className="mx-auto max-w-6xl">
-      <div className="grid grid-cols-2 gap-6">
-        {
-          options.map(({text}, index) => (
-            <Tile key={`option-${index}`} option={text} selected={selected == index} onClick={() => handleSelect(index)} />
-          ))
-        }
+
+      <div className="flex flex-col">
+        <div className="grid grid-cols-2 gap-6">
+          {
+            options.map(({text}, index) => (
+              <Tile key={`option-${index}`} option={text} selected={selected == index} onClick={() => handleSelect(index)} />
+            ))
+          }
+        </div>
+
+        <button
+          className="bg-purple-500 hover:bg-purple-400 text-white font-bold py-2 px-4 border-b-4 border-purple-700 hover:border-purple-500 rounded mt-10"
+          disabled
+        >
+          Submit
+        </button>
       </div>
+
+      
         
     </main>
   );
