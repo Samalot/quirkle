@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model film {
+  id      Int     @id @default(autoincrement())
+  name    String  @db.VarChar(255)
+  poster  String  @db.VarChar(255)
+  plot    String  @db.VarChar(255)
+  rating  Decimal @db.Decimal(65, 0)
+  list_id Int
+  imdb    String  @unique(map: "imdb") @db.VarChar(255)
+  seen    Boolean @default(false)
+
+  @@index([list_id], map: "list_id")
+}
+
+model list {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(255)
+}
+
+model selection {
+  id   Int      @id @default(autoincrement())
+  date DateTime @db.Date
+  list Int
+  film Int
+}
