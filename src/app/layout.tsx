@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import StoreProvider from '../lib/StoreProvider';
 import { Inter } from "next/font/google";
-import Navigation from "@/components/Navigation";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,12 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col items-center`}>
+      <body
+        className={`${inter.className} flex flex-col items-center mx-auto`}
+        style={{ maxWidth: 450 }}
+      >
         <StoreProvider>
-          <header className=" p-10 flex flex-row justify-center" data-testid="layout">
-            <h1 className="font-bold text-5xl inline-block">Quirkle</h1>
-          </header>
-
+          <Header />
           {children}
         </StoreProvider>
       </body>

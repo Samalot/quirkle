@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700');
+
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
@@ -12,5 +14,3 @@ body {
     text-wrap: balance;
   }
 }
-
-
